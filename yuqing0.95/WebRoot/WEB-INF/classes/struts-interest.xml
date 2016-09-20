@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="interest" extends="struts-default" namespace="/">
+	
+		<!-- 获取我感兴趣的舆情最近趋势的统计数据用来做图表数据 -->
+		<action name="interestTrend" class="interestAction" method="interestTrend">
+			<result name="ok">interestTrend.jsp</result>
+		</action>
+		
+		<!-- 获取用户已设置的兴趣数据 并显示 -->
+		<action name="interest" class="interestAction" method="interest">
+			<result name="ok">interest.jsp</result>
+		</action>
+		<!-- 用户添加兴趣关键词的action -->
+		<action name="interestAddAction" class="interestAction" method="interestAddAction">
+			<result name="ok" type="redirectAction">interest</result>
+		</action>
+		<!-- 用户刪除兴趣关键词的action -->
+		<action name="interestDelAction" class="interestAction" method="interestDelAction">
+		</action>
+
+	</package>
+</struts>

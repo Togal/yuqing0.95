@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="yuqing0.95"
+  id="myeclipse.1386487386543"
+  context-root="/yuqing0.95"
+  j2ee-spec="6.0"
+  archive="yuqing0.95.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

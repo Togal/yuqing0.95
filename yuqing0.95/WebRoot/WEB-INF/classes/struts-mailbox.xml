@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="mailbox" extends="struts-default" namespace="/">
+		
+		<!-- 获取已设置的邮件接收地址信息 -->
+		<action name="postMailSetting" class="mailBoxAction" method="mailBox">
+			<result name="ok">postMailSetting.jsp</result>
+		</action>
+		<!-- 设置邮件接收地址信息 -->
+		<action name="mailBoxAdd" class="mailBoxAction" method="mailBoxAdd">
+			<result name="ok" type="redirectAction">postMailSetting</result>
+		</action>
+		
+		<action name="mailBoxDel" class="mailBoxAction" method="mailBoxDel">
+			<result name="ok" type="redirectAction">postMailSetting</result>
+		</action>
+		
+	</package>
+</struts>

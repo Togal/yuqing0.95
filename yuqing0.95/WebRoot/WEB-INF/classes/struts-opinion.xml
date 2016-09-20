@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="opinion" extends="struts-default" namespace="/">
+
+		<!-- 获取一条舆情的具体信息，然后显示 -->
+		<action name="opinionDetail" class="opinionAction" method="detail">
+			<result name="ok">opinionDetail.jsp</result>
+		</action>
+		<!-- 舆情搜索，并显示搜索结果 -->
+		<action name="opinionSearch" class="opinionAction" method="search">
+			<result name="ok">opinionList.jsp</result>
+		</action>
+		<!-- 获取来源于微博或者其他特定媒介的舆情列表-->
+		<action name="fromCategory" class="opinionAction" method="fromCategory">
+			<result name="ok">opinionList.jsp</result>
+		</action>
+		<!-- 获取如：我感兴趣、危机舆情 或其他类别的舆情列表 -->
+		<action name="categroyTopic" class="opinionAction" method="categroyTopic">
+			<result name="ok">opinionList.jsp</result>
+		</action>
+		<!-- 获取微博获取其他来源地的统计数据用来做图表数据 -->
+		<action name="categoryCount" class="opinionAction" method="categoryCount">
+			<result name="ok">opinionCategoryCount.jsp</result>
+		</action>
+		<!-- 获取我感兴趣、危机舆情等其他类别的统计数据用来做图表数据 -->
+		<action name="levelCount" class="opinionAction" method="levelCount">
+			<result name="ok">opinionLevelCount.jsp</result>
+		</action>
+
+		<!-- 获取站点舆情数据 -->
+		<action name="websiteCount" class="opinionAction" method="websiteCount">
+			<result name="ok">websiteCount.jsp</result>
+		</action>
+		
+		<!-- 获取单条舆情的热度趋势图 -->
+		<action name="opinionTrendCount" class="opinionAction" method="trendCount">
+			<result name="ok">opinionTrend.jsp</result>
+		</action>
+		
+		<!-- 获取单条舆情讨论地区分布图数据 -->
+		<action name="opinionLocationCount" class="opinionAction" method="locationCount">
+			<result name="ok">opinionLocationCount.jsp</result>
+		</action>
+	</package>
+</struts>

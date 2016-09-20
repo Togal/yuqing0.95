@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 网站action -->
+	<bean id="websiteAction" class="com.yuqing.action.WebsiteAction" singleton="false">
+		<property name="websiteService" ref="websiteService"></property>
+	</bean>
+	<!-- 用户action -->
+	<bean id="userAction" class="com.yuqing.action.UserAction" singleton="false">
+		<property name="userService" ref="userService"></property>
+		<property name="logService" ref="logService"></property>
+		<property name="roleService" ref="roleService"></property>
+		<property name="interestService" ref="interestService"></property>
+		<property name="moduleService" ref="moduleService"></property>
+	</bean>
+	<!-- 系统action -->
+	<bean id="sysAction" class="com.yuqing.action.SysAction" singleton="false">
+		<property name="sysService" ref="sysService"></property>
+		<property name="opinionService" ref="opinionService"></property>
+		<property name="interestService" ref="interestService"></property>
+		
+	</bean>
+	<!-- 舆情action -->
+	<bean id="opinionAction" class="com.yuqing.action.OpinionAction" singleton="false">
+		<property name="opinionService" ref="opinionService"></property>
+		<property name="websiteService" ref="websiteService"></property>
+		<property name="replyService"	ref="replyService"></property>
+	</bean>
+	<!-- 我所关心action -->
+	<bean id="interestAction" class="com.yuqing.action.InterestAction" singleton="false">
+		<property name="interestService" ref="interestService"></property>
+		<property name="opinionService" ref="opinionService"></property>
+		<property name="replyService" ref="replyService"></property>
+	</bean>
+	<!-- 权限action -->
+	<bean id="powerAction" class="com.yuqing.action.PowerAction" singleton="false">
+		<property name="roleService" ref="roleService"></property>
+		<property name="moduleService" ref="moduleService"></property>
+		<property name="powerService" ref="powerService"></property>
+	</bean>
+	<!-- 角色action -->
+	<bean id="roleAction" class="com.yuqing.action.RoleAction" singleton="true">
+			<property name="roleService" ref="roleService"></property>
+	</bean>
+	<!-- 模块action -->
+	<bean id="moduleAction" class="com.yuqing.action.ModuleAction" singleton="true">
+			<property name="moduleService" ref="moduleService"></property>
+			<property name="roleService" ref="roleService"></property>
+			<property name="powerService" ref="powerService"></property>
+	</bean>
+	
+	<!-- 邮箱 action-->
+	<bean id="mailBoxAction" class="com.yuqing.action.MailBoxAction" singleton="false">
+		<property name="mailBoxService" ref="mailBoxService"></property>
+	</bean>	
+	
+	
+</beans>

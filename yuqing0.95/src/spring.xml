@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+        xmlns:aop="http://www.springframework.org/schema/aop"  
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        	http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/aop 
+			http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 数据库配置 -->
+	<import resource="/db.xml"/>
+
+	<!-- dao -->
+	<bean id="userDao" class="com.yuqing.daoImpl.UserDAOImpl" parent="daoTemplate"></bean>
+	<bean id="opinionDao" class="com.yuqing.daoImpl.OpinionDAOImpl" parent="daoTemplate"></bean>
+	<bean id="interestDao" class="com.yuqing.daoImpl.InterestDAOImpl" parent="daoTemplate"></bean>
+	<bean id="logDao" class="com.yuqing.daoImpl.LogDAOImpl" parent="daoTemplate"></bean>
+	<bean id="roleDao" class="com.yuqing.daoImpl.RoleDAOImpl" parent="daoTemplate"></bean>
+	<bean id="mailBoxDao" class="com.yuqing.daoImpl.MailBoxDAOImpl" parent="daoTemplate"></bean>
+	<bean id="replyDao" class="com.yuqing.daoImpl.ReplyDAOImpl" parent="daoTemplate"></bean>
+	<bean id="websiteDao" class="com.yuqing.daoImpl.WebsiteDAOImpl" parent="daoTemplate"></bean>
+	<bean id="moduleDAO" class="com.yuqing.daoImpl.ModuleDAOImpl" parent="daoTemplate"></bean>
+	<bean id="powerDAO" class="com.yuqing.daoImpl.PowerDAOImpl" parent="daoTemplate"></bean>
+	
+	<import resource="/spring-service.xml"/>
+	<import resource="/spring-action.xml"/>
+	
+	<bean id="logAspect" class="com.yuqing.advice.LogAdvice">
+		<property name="logService" ref="logService"></property>
+	</bean>
+	<aop:config>  
+            <aop:pointcut expression="execution(com.yuqing.model.User com.yuqing.service.impl.UserService.login(..))" id="loginPoint"/>
+            <aop:aspect ref="logAspect">
+	        	<aop:after-returning method="loginAfter" pointcut-ref="loginPoint" returning="user"/>
+            </aop:aspect>  
+     </aop:config>
+</beans>

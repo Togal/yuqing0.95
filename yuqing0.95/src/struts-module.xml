@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="module" extends="struts-default" namespace="/">
+	
+		<!-- 获取模块的数据 -->
+		<action name="moduleManage" class="moduleAction" method="moduleManage">
+				<result name="ok">moduleManage.jsp</result>
+		</action>
+		<!-- 添加模块 -->
+		<action name="moduleAddAction" class="moduleAction" method="moduleAddAction">
+				<result name="ok">moduleManage.jsp</result>
+		</action>
+		<!-- 删除模块 -->
+		<action name="moduleDelAction" class="moduleAction" method="moduleDelAction">
+				<result name="ok">moduleManage.jsp</result>
+		</action>
+		<!-- 给角色添加模块 -->
+		<action name="addModuleByRole" class="moduleAction" method="addModuleByRole">
+		</action>
+		<!-- 取消角色的模块 -->
+		<action name="cancelModuleByRole" class="moduleAction" method="cancelModuleByRole">
+		</action>
+	</package>
+</struts>

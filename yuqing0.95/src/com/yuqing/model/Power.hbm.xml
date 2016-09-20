@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.yuqing.model.Power" table="power">
+        <id name="powerId" type="java.lang.Integer">
+            <column name="power_id" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="role" class="com.yuqing.model.Role" fetch="select">
+            <column name="role_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="module" class="com.yuqing.model.Module" fetch="select" lazy="false">
+            <column name="module_id" not-null="true" />
+        </many-to-one>
+        <property name="add" type="java.lang.Integer">
+            <column name="`add`" />
+        </property>
+        <property name="del" type="java.lang.Integer">
+            <column name="`del`" />
+        </property>
+        <property name="update" type="java.lang.Integer">
+            <column name="`update`" />
+        </property>
+        <property name="find" type="java.lang.Integer">
+            <column name="`find`" />
+        </property>
+    </class>
+</hibernate-mapping>

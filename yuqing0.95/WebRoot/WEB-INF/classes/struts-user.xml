@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="user" extends="struts-default" namespace="/">
+		
+		<!-- 用户登录的action -->
+		<action name="login" class="userAction" method="login">
+			<result name="input">login.jsp</result>
+			<result name="ok">index.jsp</result>
+		</action>
+		<!-- 用户修改密码 -->
+		<action name="modifyPassword" class="userAction" method="modifyPassword">
+			<result name="ok" type="redirectAction">userDetail</result>
+			<result name="error">modifyPassword.jsp</result>
+		</action>
+		<action name="validateUser" class="userAction" method="validateUser"></action>
+		
+		<!-- 响应退出系统的action -->
+		<action name="exit" class="userAction" method="exit">
+			<result name="ok">login.jsp</result>
+		</action>
+		
+		<!-- 获取用户管理的页面数据 -->
+		<action name="userManage" class="userAction" method="userManage">
+			<result name="ok">userManage.jsp</result>
+		</action>
+		<!-- 用户权限更新action -->
+		<action name="userPowerUpdateAction" class="userAction" method="userPowerUpdateAction">
+		<!-- 	<result name="ok">userManage.jsp</result> -->
+		</action>
+		<!-- 用户添加action -->
+		<action name="userAddAction" class="userAction" method="userAddAction">
+					<result name="ok" >userManage.jsp </result>
+		</action>
+		<!-- 用户删除action -->
+		<action name="delUserAction" class="userAction" method="userDelAction">
+			<result name="ok">userManage.jsp</result>
+		</action>
+		
+		<!-- 获取用户的详细信息 -->
+		<action name="userDetail" class="userAction" method="userDetail">
+			<result name="ok">userDetail.jsp</result>
+		</action>
+		<!-- 用户修改信息的action -->
+		<action name="modifyDetailAction" class="userAction" method="modifyDetailAction">
+			<result name="ok" type="redirectAction">userDetail</result>
+		</action>
+	
+		<!-- 获取操作日志信息 -->
+		<action name="operationLog" class="userAction" method="operatLog">
+			<result name="ok">operationLog.jsp</result>
+		</action>
+		<!-- 操作日志信息 -->
+		<action name="operationLogAction" class="userAction" method="opereatLogAction">
+			<result name="ok" type="redirectAction">operationLog</result>
+		</action>
+	</package>
+</struts>

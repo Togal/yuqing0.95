@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="utf8"></constant>
+	
+	<constant name="struts.objectFactory" value="spring"></constant>
+
+<!-- 	<constant name="struts.devMode" value="true" /> -->  
+
+	<!-- 用户action -->
+	<include file="struts-user.xml"></include>
+	
+	<!-- 系统action -->
+	<include file="struts-system.xml"></include>
+	
+	<!-- 兴趣action -->
+	<include file="struts-interest.xml"></include>
+	
+	<!-- 邮箱action -->
+	<include file="struts-mailbox.xml"></include>
+	
+	<!-- 舆情action -->
+	<include file="struts-opinion.xml"></include>
+	
+	<!-- 权限action -->
+	<include file="struts-power.xml"></include>
+	
+	<!-- 角色action -->
+	<include file="struts-role.xml"></include>
+	
+	<!-- 模块action -->
+	<include file="struts-module.xml"></include>
+</struts>

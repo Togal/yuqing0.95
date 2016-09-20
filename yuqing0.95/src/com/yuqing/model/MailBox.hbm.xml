@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.yuqing.model.MailBox" table="mail_box">
+        <id name="emailId" type="integer">
+            <column name="email_id" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="user" class="com.yuqing.model.User" lazy="false">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="emailName" type="string">
+            <column name="email_name" length="20" not-null="true" />
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="email_address" length="20" not-null="true" />
+        </property>
+        <property name="tof" type="short">
+            <column name="tof" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>	
+	<!-- 用户service -->
+	<bean id="userService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.UserService">
+				<property name="userDao" ref="userDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 系统service -->
+	<bean id="sysService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.SysService">
+			</bean>
+		</property>
+	</bean>
+	<!-- 舆情service -->
+	<bean id="opinionService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.OpinionService">
+				<property name="opinionDao" ref="opinionDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 我所关心service -->
+	<bean id="interestService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.InterestService">
+				<property name="interestDao" ref="interestDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 日志service -->
+	<bean id="logService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.LogService">
+				<property name="logDao" ref="logDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 角色service -->
+	<bean id="roleService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.RoleService">
+				<property name="roleDao" ref="roleDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 模块service -->
+	<bean id="moduleService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.ModuleService">
+				<property name="moduleDAO" ref="moduleDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 权限service -->
+	<bean id="powerService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.PowerService">
+				<property name="powerDAO" ref="powerDAO"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 邮箱service -->
+	<bean id="mailBoxService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.MailBoxService">
+				<property name="mailBoxDao" ref="mailBoxDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 回复service -->
+	<bean id="replyService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.ReplyService">
+				<property name="replyDao" ref="replyDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 站点service -->
+	<bean id="websiteService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.yuqing.service.impl.WebsiteService">
+				<property name="websiteDao" ref="websiteDao"></property>
+			</bean>
+		</property>
+	</bean>
+</beans>

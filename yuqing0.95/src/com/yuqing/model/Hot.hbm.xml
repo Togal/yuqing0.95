@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.yuqing.model.Hot" table="hot">
+        <id name="hotId" type="integer">
+            <column name="hot_id" />
+            <generator class="native" />
+        </id>
+        <property name="word" type="string">
+            <column name="word" length="15" not-null="true" />
+        </property>
+        <property name="hotTime" type="date">
+            <column name="hot_time" length="10" not-null="true" />
+        </property>
+        <property name="hotValue" type="integer">
+            <column name="hot_value" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
